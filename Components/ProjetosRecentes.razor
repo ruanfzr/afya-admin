@@ -1,0 +1,54 @@
+@namespace afya_admin.Components
+@using afya_admin.Data
+
+<DashboardCard Titulo="Projetos Recentes">
+    <Acoes>
+        <MudButton Variant="Variant.Text" Color="Color.Primary" EndIcon="@Icons.Material.Filled.ArrowForward" Size="Size.Small">
+            Ver todos
+        </MudButton>
+    </Acoes>
+    <ChildContent>
+        <MudTable Items="@ListaProjetos" Elevation="0" Hover="true" Dense="true">
+            <HeaderContent>
+                <MudTh>Projeto</MudTh>
+                <MudTh>Cliente</MudTh>
+                <MudTh>Responsável</MudTh>
+                <MudTh>Status</MudTh>
+                <MudTh>Progresso</MudTh>
+                <MudTh>Prazo</MudTh>
+                <MudTh Style="text-align:right">Ações</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Projeto">
+                    <MudText Typo="Typo.body2" Class="fw-bold">@context.Nome</MudText>
+                </MudTd>
+                <MudTd DataLabel="Cliente">@context.Cliente</MudTd>
+                <MudTd DataLabel="Responsável">
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
+                        <MudAvatar Size="Size.Small" Color="Color.Default">@context.IniciaisResponsavel</MudAvatar>
+                        <MudText Typo="Typo.body2">@context.Responsavel</MudText>
+                    </MudStack>
+                </MudTd>
+                <MudTd DataLabel="Status">
+                    <MudChip T="string" Color="@context.CorStatus" Size="Size.Small" Variant="Variant.Text">
+                        @context.Status
+                    </MudChip>
+                </MudTd>
+                <MudTd DataLabel="Progresso">
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2" Style="width: 140px;">
+                        <MudProgressLinear Color="Color.Primary" Value="@context.Progresso" Size="Size.Small" Class="rounded-lg" />
+                        <MudText Typo="Typo.caption">@context.Progresso%</MudText>
+                    </MudStack>
+                </MudTd>
+                <MudTd DataLabel="Prazo">@context.Prazo</MudTd>
+                <MudTd DataLabel="Ações" Style="text-align:right">
+                    <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Size="Size.Small" />
+                </MudTd>
+            </RowTemplate>
+        </MudTable>
+    </ChildContent>
+</DashboardCard>
+
+@code {
+    [Parameter] public List<ProjetoRecente> ListaProjetos { get; set; } = new();
+}

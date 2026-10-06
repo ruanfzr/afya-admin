@@ -1,0 +1,33 @@
+@using MudBlazor
+@using afya_admin.Data
+
+<MudPaper Class="pa-4" Outlined="true" Elevation="0">
+    <div class="d-flex justify-space-between align-center mb-2">
+        <MudText Typo="Typo.subtitle2" Class="mud-text-secondary">@Kpi.Titulo</MudText>
+        <MudAvatar Color="@Kpi.Cor" Variant="Variant.Filled" Size="Size.Small">
+            <MudIcon Icon="@Kpi.Icone" Size="Size.Small" />
+        </MudAvatar>
+    </div>
+
+    <MudText Typo="Typo.h4" Class="font-weight-bold mb-2">@Kpi.Valor</MudText>
+
+    <div class="d-flex align-center">
+        <MudIcon Icon="@(Kpi.Positivo ? Icons.Material.Filled.ArrowUpward : Icons.Material.Filled.ArrowDownward)"
+                 Color="@(Kpi.Positivo ? Color.Success : Color.Error)" Size="Size.Small" />
+        <MudText Typo="Typo.caption" Color="@(Kpi.Positivo ? Color.Success : Color.Error)" Class="ml-1 font-weight-bold">
+            @Kpi.Variacao
+        </MudText>
+        <MudText Typo="Typo.caption" Class="mud-text-secondary ml-1">vs mês anterior</MudText>
+    </div>
+
+    @if (Kpi.SparklineData != null && Kpi.SparklineData.Length > 0)
+    {
+        <div class="mt-3">
+            <MudSparkline Data="@Kpi.SparklineData" Color="@Kpi.Cor" Height="40" />
+        </div>
+    }
+</MudPaper>
+
+@code {
+    [Parameter] public Kpi Kpi { get; set; } = new();
+}
