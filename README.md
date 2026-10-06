@@ -146,21 +146,3 @@ Responda **com suas próprias palavras** (um parágrafo curto por pergunta):
 8. Por que o namespace do projeto é `afya_admin` e não `afya-admin`?
     
    Nas regras de sintaxe da linguagem C#, nomes de namespaces devem seguir os identificadores válidos do ecossistema .NET, os quais não permitem o uso de hífens (-), pois o hífen é interpretado pelo compilador como o operador aritmético de subtração. Por esse motivo, o nome do projeto afya-admin é convertido automaticamente para afya_admin utilizando underscore.
-   
-## Dificuldades e soluções
-
-Problema 1: Sincronização do tema Dark/Light entre o menu e a aplicação inteira.
-Descrição: Ao alternar o chaveamento do tema escuro no topo da aplicação, alguns contêineres e cards mantinham a cor de fundo padrão.
-Solução: Centralizou-se o componente MudThemeProvider no MainLayout.razor compartilhando uma variável booleana global (isDarkMode) e utilizando os componentes de contêiner nativos da biblioteca (MudLayout, MudPaper), garantindo a herança correta das variáveis de cor do tema.
-
-Problema 2: Disposição de gráficos e cartões em telas de menor resolução.
-Descrição: Em telas mobile, os gráficos de desempenho estouravam a largura do contêiner lateral, gerando rolagem horizontal indesejada.
-Solução: Ajustou-se a propriedade Responsive="true" nos gráficos do MudBlazor e aplicou-se a propriedade xs="12" na estrutura do MudGrid para forçar o empilhamento vertical automático dos componentes em telas pequenas.
-
-## Melhorias futuras (opcional)
-
-[ ] Consumo de API Real: Substituição dos serviços de simulação (Mock) em Data/ por integração HTTP com uma API ASP.NET Core Web API externa.
-
-[ ] Módulo de Gestão de Clientes: Implementação da tela complementar Pages/Clientes.razor com tabela de dados (MudDataGrid), suporte à paginação, ordenação e pesquisa rápida.
-
-[ ] Exportação de Relatórios: Adição de funcionalidade de geração de relatórios do dashboard nos formatos PDF e CSV.
