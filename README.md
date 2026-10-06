@@ -43,19 +43,6 @@ dotnet watch
 ```
 Após a compilação, o navegador abrirá automaticamente no endereço local http://localhost: e uma porta informada no terminal.
 
-## Telas
-
-### Tema claro
-![Dashboard — tema claro]<img width="1920" height="894" alt="image" src="https://github.com/user-attachments/assets/7c440366-2fa2-49a7-9f31-8378c2a44536" />
-
-
-### Tema escuro
-![Dashboard — tema escuro]<img width="1916" height="888" alt="image" src="https://github.com/user-attachments/assets/80d4d2da-b0b2-4c08-8171-23eabe5e1642" />
-
-
-### Versão mobile
-![Dashboard — celular]<img width="276" height="597" alt="image" src="https://github.com/user-attachments/assets/49dbb3ef-11fd-460a-9558-c38a255b055a" />
-
 
 ### HTML gerado (DevTools)
 ![Inspeção do HTML no DevTools]<img width="1567" height="407" alt="image" src="https://github.com/user-attachments/assets/e38d9e70-17fe-4bd2-9165-48b2bb3c52df" />
